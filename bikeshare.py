@@ -30,7 +30,8 @@ def get_filters():
     # get user input for month (all, january, february, ... , june)
     valid_input = False
     while not valid_input:
-        month = input('\nWhich month - Enter Jan, Feb, Mar, Apr, May, Jun or All.\n').title()
+        month = input(
+            '\nWhich month - Enter Jan, Feb, Mar, Apr, May, Jun or All.\n').title()
         if month in ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'All'):
             valid_input = True
         else:
@@ -39,7 +40,8 @@ def get_filters():
     # get user input for day of week (all, monday, tuesday, ... sunday)
     valid_input = False
     while not valid_input:
-        day = input("\nWhich day - Enter Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or All.\n").title()
+        day = input(
+            "\nWhich day - Enter Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or All.\n").title()
         if day in ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'All'):
             valid_input = True
         else:
@@ -109,17 +111,20 @@ def time_stats(df):
     common_month = df['Month'].mode()[0]
     common_month_name = calendar.month_name[common_month]
     common_month_count = df['Month'].value_counts()[common_month]
-    print('\nMost common month is', common_month_name, 'with a count of', common_month_count)
+    print('\nMost common month is', common_month_name,
+          'with a count of', common_month_count)
 
     # display the most common day of week and its count
     common_day = df['Day_Of_Week'].mode()[0]
     common_day_count = df['Day_Of_Week'].value_counts()[common_day]
-    print('\nMost common day of week is', common_day, 'with a count of', common_day_count)
+    print('\nMost common day of week is', common_day,
+          'with a count of', common_day_count)
 
     # display the most common start hour and its count
     common_hour = df['Start_Hour'].mode()[0]
     common_hour_count = df['Start_Hour'].value_counts()[common_hour]
-    print('\nMost common start hour is', common_hour, 'with a count of', common_hour_count)
+    print('\nMost common start hour is', common_hour,
+          'with a count of', common_hour_count)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -138,21 +143,28 @@ def station_stats(df):
 
     # display most commonly used start station and count
     common_start_station = df['Start Station'].mode()[0]
-    common_start_station_count = df['Start Station'].value_counts()[common_start_station]
-    print('\nMost common start station is', common_start_station, 'with a count of', common_start_station_count)
+    common_start_station_count = df['Start Station'].value_counts()[
+                                                                  common_start_station]
+    print('\nMost common start station is', common_start_station,
+          'with a count of', common_start_station_count)
 
     # display most commonly used end station
     common_end_station = df['End Station'].mode()[0]
-    common_end_station_count = df['End Station'].value_counts()[common_end_station]
-    print('\nMost common end station is', common_end_station, 'with a count of', common_end_station_count)
+    common_end_station_count = df['End Station'].value_counts()[
+                                                              common_end_station]
+    print('\nMost common end station is', common_end_station,
+          'with a count of', common_end_station_count)
 
     # display most frequent combination of start station and end station trip
     common_trip = (df['Start Station'] + ' to ' + df['End Station']).mode()[0]
-    common_trip_count = (df['Start Station'] + ' to ' + df['End Station']).value_counts()[common_trip]
-    print('\nMost common trip is', common_trip, 'with a count of', common_trip_count)
+    common_trip_count = (df['Start Station'] + ' to '
+                         + df['End Station']).value_counts()[common_trip]
+    print('\nMost common trip is', common_trip,
+          'with a count of', common_trip_count)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+
 
 def split_timedelta_parts(time_delta_value):
     """
@@ -172,8 +184,9 @@ def split_timedelta_parts(time_delta_value):
 
     calculated_days = time_delta_value.days
     calculated_hours = time_delta_value.seconds//3600
-    calculated_minutes = (time_delta_value.seconds//60)%60
-    calculated_seconds = time_delta_value.seconds - (calculated_hours * 3600) - (calculated_minutes * 60)
+    calculated_minutes = (time_delta_value.seconds//60) % 60
+    calculated_seconds = time_delta_value.seconds - \
+        (calculated_hours * 3600) - (calculated_minutes * 60)
 
     return calculated_days, calculated_hours, calculated_minutes, calculated_seconds
 
@@ -181,6 +194,7 @@ def split_timedelta_parts(time_delta_value):
 def trip_duration_stats(df):
     """
     Displays statistics on the total and average trip duration.
+    Makes use of split_timedelta_parts function to better display results.
 
     Args:
         (Panda Dataframe) df - Containing city data filtered by month and day
@@ -190,12 +204,16 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # display total travel time (to seconds excluding microseconds)
-    travel_days, travel_hours, travel_minutes, travel_seconds = split_timedelta_parts(df['Duration'].sum())
-    print('\nTotal trip duration is', travel_days, 'days,', travel_hours, 'hours,', travel_minutes, 'minutes and', travel_seconds, 'seconds')
+    travel_days, travel_hours, travel_minutes, travel_seconds = split_timedelta_parts(
+        df['Duration'].sum())
+    print('\nTotal trip duration is', travel_days, 'days,', travel_hours,
+          'hours,', travel_minutes, 'minutes and', travel_seconds, 'seconds')
 
     # display mean travel time
-    travel_days, travel_hours, travel_minutes, travel_seconds = split_timedelta_parts(df['Duration'].mean())
-    print('\nTotal mean travel time is', travel_days, 'days,', travel_hours, 'hours,', travel_minutes, 'minutes and', travel_seconds, 'seconds')
+    travel_days, travel_hours, travel_minutes, travel_seconds = split_timedelta_parts(
+        df['Duration'].mean())
+    print('\nTotal mean travel time is', travel_days, 'days,', travel_hours,
+          'hours,', travel_minutes, 'minutes and', travel_seconds, 'seconds')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -263,16 +281,19 @@ def show_raw_data(df):
     """
 
     # Display raw data in 5 row blocks while user confirms
-    show_data = input('\nWould you like to see raw data rows? Enter yes or no.\n')
+    show_data = input(
+        '\nWould you like to see raw data rows? Enter yes or no.\n')
     if show_data.lower() == 'yes':
         print('\nDisplaying sample rows from underlying data set appropriate to your chosen filter.\n')
         for samplerows in get_sample_raw_data_rows(df):
             print(samplerows)
-            show_more = input('\nWould you like to see more rows? Enter yes or no.\n')
+            show_more = input(
+                '\nWould you like to see more rows? Enter yes or no.\n')
             if show_more.lower() != 'yes':
                 break
 
     print('-'*40)
+
 
 def main():
     while True:
