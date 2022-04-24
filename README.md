@@ -1,17 +1,20 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
+24th April 2022
 
-### Date created
-Include the date you created this project and README file.
-
-### Project Title
-Replace the Project Title
+### Bikeshare Project by Steven Stewart
 
 ### Description
-Describe what your project is about and what it does
+Created for the Udacity Programming for Data Science in Python course.
+
+The project allows the user to calculated selected statistical analysis
+on bike share data from three U.S. citites
+
+N.B. To avoid the upload of large data files to Git Hun, the data files
+required use by this programme are **not** included in this project.
 
 ### Files used
-Include the files used
+The following files are included in this project:
+- bikeshare.py
+- README.md
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Thanks to Udacity for offering a wonderful course.
