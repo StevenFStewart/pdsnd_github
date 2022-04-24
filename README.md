@@ -5,11 +5,9 @@
 ### Description
 Created for the Udacity Programming for Data Science in Python course.
 
-The project allows the user to calculated selected statistical analysis
-on bike share data from three U.S. citites
-
-N.B. To avoid the upload of large data files to Git Hun, the data files
-required use by this programme are **not** included in this project.
+The project allows the user to calculate selected statistical analysis
+on bike share data from three U.S. cities, **Chicago, New York** and
+**Washington**.
 
 ### Files used
 The following files are included in this project:
@@ -17,4 +15,6 @@ The following files are included in this project:
 - README.md
 
 ### Credits
-Thanks to Udacity for offering a wonderful course.
+Thanks to [Udacity](https://www.udacity.com) for offering a wonderful course.
+
+In addition, I'd like to specifically credit this [convert a timedelta to days hours and minutes StackFlow article](https://stackoverflow.com/questions/2119472/convert-a-timedelta-to-days-hours-and-minutes) which I referenced when writing the code for the project.
