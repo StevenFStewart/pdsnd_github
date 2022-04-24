@@ -266,8 +266,8 @@ def show_raw_data(df):
     show_data = input('\nWould you like to see raw data rows? Enter yes or no.\n')
     if show_data.lower() == 'yes':
         print('\nDisplaying sample rows from underlying data set appropriate to your chosen filter.\n')
-        for samplerows in get_sample_raw_data_rows(df):
-            print(samplerows)
+        for somesamplerows in get_sample_raw_data_rows(df):
+            print(somesamplerows)
             show_more = input('\nWould you like to see more rows? Enter yes or no.\n')
             if show_more.lower() != 'yes':
                 break
